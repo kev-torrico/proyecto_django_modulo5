@@ -10,4 +10,5 @@ router.register(r'coche', views.CocheViewSet)
 urlpatterns = [
     path('', include(router.urls)),
     path('index/', views.index, name= "index"),
+    path('reparacion/', views.ReparacionCreateView.as_view(), name='reparacion-create-list')
 ]

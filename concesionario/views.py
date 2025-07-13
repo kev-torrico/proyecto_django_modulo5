@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from rest_framework import viewsets
-from .serializers import ClienteSerializer, MecanicoSerializer, CocheSerializer
-from .models import Cliente, Mecanico, Coche
+from rest_framework import viewsets, generics
+from .serializers import ClienteSerializer, MecanicoSerializer, CocheSerializer, ReparacionSerializer
+from .models import Cliente, Mecanico, Coche, Reparacion
 # Create your views here.
 
 
@@ -20,3 +20,7 @@ class MecanicoViewSet(viewsets.ModelViewSet):
 class CocheViewSet(viewsets.ModelViewSet):
     queryset = Coche.objects.all()
     serializer_class = CocheSerializer
+
+class ReparacionCreateView (generics.CreateAPIView, generics.ListAPIView):
+    queryset= Reparacion.objects.all()
+    serializer_class= ReparacionSerializer
