@@ -8,7 +8,9 @@ router.register(r'mecanico', views.MecanicoViewSet)
 router.register(r'coche', views.CocheViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
     path('index/', views.index, name= "index"),
-    path('reparacion/', views.ReparacionCreateView.as_view(), name='reparacion-create-list')
+    path('reparacion/', views.ReparacionCreateView.as_view(), name='reparacion-create-list'),
+    path('coche/filtrar/nuevo', views.coches_nuevos, name='coches-nuevos'),
+    path('coche/filtrar/usado', views.coches_usados, name='coches-usados'),
+    path('', include(router.urls)),
 ]
